@@ -215,6 +215,7 @@ nav a:hover {
         var remainingVotesElement = document.getElementById('remainingVotes');
         var originalVotes = parseInt(document.querySelector('input[name="kuota_vote"]').value) || 0;
         var maxSelectableVotes = originalVotes; // Set the maximum selectable votes
+        var minSelectableVotes = originalVotes; // Set the minimum selectable votes
 
         // Function to update remaining votes
         function updateRemainingVotes() {
@@ -230,6 +231,10 @@ nav a:hover {
                     checkbox.disabled = remainingVotes === 0;
                 }
             });
+
+            // Enable or disable the submit button based on minimum votes
+            var submitButton = document.querySelector('button[type="submit"]');
+            submitButton.disabled = checkedCheckboxes.length < minSelectableVotes;
         }
 
         // Ensure only one "ketua" candidate is selected
