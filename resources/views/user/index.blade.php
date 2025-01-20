@@ -214,12 +214,13 @@ nav a:hover {
     document.addEventListener('DOMContentLoaded', function () {
         var remainingVotesElement = document.getElementById('remainingVotes');
         var originalVotes = parseInt(document.querySelector('input[name="kuota_vote"]').value) || 0;
+        var maxSelectableVotes = originalVotes; // Set the maximum selectable votes
 
         // Function to update remaining votes
         function updateRemainingVotes() {
             var checkedCheckboxes = document.querySelectorAll('.vote-checkbox:checked');
             var allCheckboxes = document.querySelectorAll('.vote-checkbox');
-            var remainingVotes = originalVotes - checkedCheckboxes.length;
+            var remainingVotes = maxSelectableVotes - checkedCheckboxes.length;
             remainingVotes = Math.max(remainingVotes, 0);
             remainingVotesElement.innerText = remainingVotes;
 
