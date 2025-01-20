@@ -70,7 +70,7 @@ Route::middleware(['auth'])->group(function () {
         return view('adminall.tambahtoken', compact('event', 'id_event'));
     })->name('adminall.tambahtoken');
     Route::post('/generateTokens', [IndexController::class, 'generateTokens'])->name('adminall.generateTokens');
-    Route::delete('/deleteToken/{id}', [IndexController::class, 'deleteToken'])->name('deleteToken');
+    Route::delete('/deleteToken/{id}', [IndexController::class, 'deleteToken'])->name('token.destroy');
 
 
     //RESULT HASIL

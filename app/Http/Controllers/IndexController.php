@@ -11,6 +11,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\ModelNotFoundException; // Add this line
 
 class IndexController extends Controller
 {
@@ -274,15 +275,15 @@ class IndexController extends Controller
 
     public function deleteToken($id)
     {
-        $token = Token::find($id);
-
-        if ($token) {
-            $token->event()->dissociate();
-            $token->save();
+        try {
+            $token = Token::findOrFail($id);
             $token->delete();
-            return response()->json(['success' => true]);
-        } else {
-            return response()->json(['success' => false]);
+
+            return response()->json(['success' => true, 'message' => 'Token deleted successfully.']);
+        } catch (ModelNotFoundException $e) {
+            return response()->json(['success' => false, 'message' => 'Token not found.'], 404);
+        } catch (\Exception $e) {
+            return response()->json(['success' => false, 'message' => 'Failed to delete token.'], 500);
         }
     }
 

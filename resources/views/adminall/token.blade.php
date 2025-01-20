@@ -25,17 +25,16 @@
         <tbody>
           @foreach ($data as $token)
           @if ($token->id_event == $id_event)
-          <tr class="table-info">
+          <tr class="table-info" data-token-id="{{ $token->id }}">
             <td>{{ $loop->iteration }}</td>
             <td>{{ $token->token}}</td>
             <td>{{ $token->used_at ? 'terpakai' : 'belum terpakai' }}</td>
-
-            <td>    <a href="#" onclick="showDeleteConfirmation({{ $token->id }})">
-              <i class="mdi mdi-delete delete-icon"></i>
-          </a>
-           
-              
-         </td>
+            <td>
+              <a href="{{ route('token.destroy', ['id' => $token->id]) }}" 
+         onclick="event.preventDefault(); deleteToken({{ $token->id }});">
+        <i class="mdi mdi-delete delete-icon"></i>
+      </a>
+            </td>
           </tr>
           @endif
           @endforeach
@@ -61,26 +60,24 @@
       modal.style.display = 'none';
   }
 
-  function deleteToken() {
-      var id = document.getElementById('deleteConfirmationModal').dataset.tokenId;
-      var deleteUrl = "{{ url('/deleteToken') }}/" + id;
+  function deleteToken(id) {
+      var deleteUrl = "{{ route('token.destroy', ':id') }}".replace(':id', id);
 
-      // Use Fetch API or other AJAX methods to send a DELETE request
       fetch(deleteUrl, {
               method: 'DELETE',
               headers: {
                   'X-CSRF-TOKEN': '{{ csrf_token() }}',
                   'Content-Type': 'application/json',
-                  // Add any other headers as needed
               },
           })
-          .then(response => response.json()) // Adjust based on your response format
+          .then(response => response.json())
           .then(data => {
               if (data.success) {
-                  alert('Token deleted successfully.');
-                  // You can also update the UI as needed, e.g., remove the deleted item from the list
+                  alert(data.message);
+                  // Remove the deleted token row from the table
+                  document.querySelector(`tr[data-token-id="${id}"]`).remove();
               } else {
-                  alert('Failed to delete token.');
+                  alert(data.message);
               }
               hideDeleteConfirmation();
           })
