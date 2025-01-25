@@ -78,9 +78,9 @@
           </div>
         </div>
         <div class="col-lg-2">
-          <h3 class="text-white" style="margin-left: -250px;">Musyawarah Daerah
-          </h3><h3 class="text-white"  style="margin-left: -250px;"> Ikatan Mahasiswa Muhammadiyah
-            </h3><h3 class="text-white" style="margin-left: -250px;"> Jawa Barat</h2>
+          <h3 class="text-white" style="margin-left: -300px;">Musyawarah Daerah
+          </h3><h3 class="text-white"  style="margin-left: -300px;"> Ikatan Mahasiswa Muhammadiyah
+            </h3><h3 class="text-white" style="margin-left: -300px;"> Jawa Barat</h2>
         </div>
         <div class="col-lg-5 col-md-6">
           <div class="course-form-section">
