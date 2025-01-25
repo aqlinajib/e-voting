@@ -35,8 +35,8 @@
                         <label for="posisi">Posisi</label>
                         <select name="posisi" class="form-control" required>
                             <option value="Blank">Pilih Posisi</option>
-                            <option value="ketua">Ketua</option>
-                            <option value="member">Member</option>
+                            <option value="ketua">Calon Ketua</option>
+                            <option value="member">Calon Formatur</option>
                         </select>
                     </div>
                     <div class="form-group">

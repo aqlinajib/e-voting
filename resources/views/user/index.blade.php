@@ -124,7 +124,7 @@ nav a:hover {
                         @csrf
                         <input type="hidden" name="id_event" value="{{ $idEvent }}">
                         <input type="hidden" name="kuota_vote" value="{{ $kuotaVote }}">
-                         <h3 class="center-text">KETUA SECTION</h3>
+                         <h3 class="center-text">CALON KETUA SECTION</h3>
                          <br>
                         <p class="remaining-votes" data-original-votes="{{ $kuotaVote }}">Remaining Votes: <span id="remainingVotes">{{ $kuotaVote }}</span></p>
                        
@@ -161,7 +161,7 @@ nav a:hover {
                                 <p>No data available</p>
                             @endif
                         </div>
-                         <h3 class="center-text">MEMBER SECTION</h3>
+                         <h3 class="center-text">CALON FORMATUR</h3>
                          <br>
                         <section id="member-section" class="input-token-area">
                             <div class="popular-course-grid">

@@ -37,6 +37,7 @@
   <!-- ================ Start Header Area ================= -->
   <header class="default-header">
     <nav class="navbar navbar-expand-lg  navbar-light">
+       <img src="{{ asset('storage/foto/logo.png') }}" style="max-width: 100px;">
       <div class="container">
         <a class="navbar-brand" href="index.html">
           <!--<img src="img/logo.png" alt="" />-->
@@ -63,40 +64,42 @@
   <!-- ================ End Header Area ================= -->
 
   
+  
 <section id="input-token" class="input-token-area section-gap">
   <!-- ================ Start Registration Area ================= -->
   <section class="registration-area1">
     <div class="container">
-      <div class="row align-items-end">
-        <div class="col-lg-5">
+      <div class="row align-items-center">
+        <div class="col-lg-5" style="margin-left: -50px;">
           <div class="section-title text-left text-white">
             <h2 class="text-white">
-             input token <br>
+              <img src="{{ asset('storage/foto/MUSYDA-2.png') }}" style="max-width: 150px;">
             </h2>
-            <p>
-              Isikan token unik yang Anda terima untuk mulai memilih.
-            </p>
           </div>
         </div>
-        <div class="offset-lg-3 col-lg-4 col-md-6">
+        <div class="col-lg-2">
+          <h3 class="text-white" style="margin-left: -250px;">Musyawarah Daerah
+          </h3><h3 class="text-white"  style="margin-left: -250px;"> Ikatan Mahasiswa Muhammadiyah
+            </h3><h3 class="text-white" style="margin-left: -250px;"> Jawa Barat</h2>
+        </div>
+        <div class="col-lg-5 col-md-6">
           <div class="course-form-section">
             <h3 class="text-white">Token</h3>
             <p class="text-white">Gunakan Disini</p>
             @if ($errors->any())
-                  <div class="alert alert-danger">
-                    <ul>
-                      @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                      @endforeach
-                    </ul>
-                  </div>
-                  @endif
-            <form action="{{ route('logintoken') }}" method="POST" class="course-form-area contact-page-form course-form text-right" >
-            @csrf
-              <div class="form-group col-md-12">
-                <input type="token" name="token" class="form-control" placeholder="token" onfocus="this.placeholder = ''"onblur="this.placeholder = 'Name'">
+              <div class="alert alert-danger">
+                <ul>
+                  @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                  @endforeach
+                </ul>
               </div>
-              
+            @endif
+            <form action="{{ route('logintoken') }}" method="POST" class="course-form-area contact-page-form course-form text-right">
+              @csrf
+              <div class="form-group col-md-12">
+                <input type="token" name="token" class="form-control" placeholder="token" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Name'">
+              </div>
               <div class="col-lg-12 text-center">
                 <button class="btn text-uppercase">Submit</button>
               </div>
@@ -106,7 +109,6 @@
       </div>
     </div>
   </section>
-
 </body>
 
 </html>
