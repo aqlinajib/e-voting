@@ -30,16 +30,29 @@
               <div class="col-md-8">
                 <div class="mb-4">
                   <h3>Sign In</h3>
-                  @if ($errors->any())
-                  <div class="alert alert-danger">
-                    <ul>
-                      @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                      @endforeach
-                    </ul>
-                  </div>
+                  <div class="mb-4">
+                  @if (session('error'))
+                    <div class="alert alert-danger">
+                      {{ session('error') }}
+                    </div>
                   @endif
-                  <form action="{{ route('login') }}" method="POST">
+                
+                  @if (session('status'))
+                    <div class="alert alert-warning">
+                      {{ session('status') }}
+                    </div>
+                  @endif
+                
+                  @if ($errors->any())
+                    <div class="alert alert-danger">
+                      <ul>
+                        @foreach ($errors->all() as $error)
+                          <li>{{ $error }}</li>
+                        @endforeach
+                      </ul>
+                    </div>
+                  @endif
+                <form action="{{ route('login') }}" method="POST">
                     @csrf
                     <div class="form-group first">
                       <label for="email">Email</label>

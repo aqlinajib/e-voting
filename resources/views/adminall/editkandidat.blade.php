@@ -25,7 +25,7 @@
             <input type="file" name="foto" class="form-control-file" accept="image/*">
             
             @if ($kandidat->foto)
-                <img src="{{ $kandidat->foto }}" alt="Foto Kandidat" class="img-thumbnail mt-2" style="max-width: 200px;">
+                 <img src="{{ url('storage/foto/' . $kandidat->foto) }}" style="max-width: 100px;">
             @endif
         
             <input type="hidden" name="current_foto" value="{{ $kandidat->foto }}">

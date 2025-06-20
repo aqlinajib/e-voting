@@ -49,12 +49,7 @@
 
         <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
           <ul class="navbar-nav">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="#prosedur-pemilihan">Prosedur Pemilih</a></li>
-            <li><a href="{{ route('logintoken') }}">Input Token</a></li>
-            <li><a href="#teknologi">Teknologi</a></li>
-            <li><a href="#kontak">Kontak</a></li>
-            <li><a href="{{ route('login') }}">Login</a></li>
+            <li><a href="{{ route('logout') }}" class="text-dark">Logout</a></li>
 
           </ul>
         </div>

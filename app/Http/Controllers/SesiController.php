@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use App\Models\token;
-use App\Models\event;
+use App\Models\Token;
+use App\Models\Event;
 use Illuminate\Support\Facades\Auth;
 
 class SesiController extends Controller
@@ -67,7 +67,7 @@ class SesiController extends Controller
                 return redirect('index/superadm');
             }
         } else {
-            return redirect('')->withErrors('Username dan Password Yang dimasukan tidak sesuai')->withInput();
+            return redirect()->back()->with('error', 'Username dan Password yang dimasukkan tidak sesuai')->withInput();
         }
     }
 

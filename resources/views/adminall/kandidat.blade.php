@@ -46,7 +46,7 @@
                         <td>{{ $kandidat->nama_kandidat }}</td>
                         <td>
                             @if($kandidat->foto && !$sembunyikanFoto)
-                                <img src="{{ asset('storage/foto/' . $kandidat->foto) }}"  style="max-width: 100px;">
+                                 <img src="{{ url('storage/foto/' . $kandidat->foto) }}" style="max-width: 100px;">
                             @else
                                 @if ($sembunyikanFoto)
                                     Foto Disembunyikan

@@ -19,12 +19,12 @@ class event extends Model
     ];
     public function kandidats()
     {
-        return $this->hasMany(kandidat::class);
+        return $this->hasMany(Kandidat::class);
     }
 
     public function tokens()
     {
-        return $this->hasMany(token::class);
+        return $this->hasMany(Token::class);
     }
  
 }

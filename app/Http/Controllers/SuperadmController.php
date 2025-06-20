@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\event;
+use App\Models\Event;
 
 class SuperadmController extends Controller
 {

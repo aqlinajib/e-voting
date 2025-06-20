@@ -8,11 +8,23 @@ use App\Http\Middleware\TokenAuthenticate;
 use App\Http\Controllers\ContenController;
 use App\Http\Controllers\KandidatController;
 use App\Http\Controllers\SuperadmController;
-use App\Models\event;
+use App\Models\Event;
 use App\Models\Kandidat;
-use App\Models\token;
+use App\Models\Token;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
+
+
+Route::get('/storage/foto/{filename}', function ($filename) {
+    $path = storage_path('app/public/foto/' . $filename);
+
+    if (!file_exists($path)) {
+        abort(404);
+    }
+
+    return Response::file($path);
+});
 
 // Definisi rute untuk otentikasi
 Route::get('/login', [SesiController::class, 'index'])->name('login');
@@ -74,7 +86,8 @@ Route::middleware(['auth'])->group(function () {
 
 
     //RESULT HASIL
-    Route::get('/index/result/{id_event}', [IndexController::class, 'result'])->name('adminall.result')->middleware('userAkases:superadm');
+     Route::get('/index/result/{id_event}', [IndexController::class, 'result'])->name('adminall.result')->middleware('userAkases:superadm');
+    Route::get('/api/kandidat/{id_event}', [KandidatController::class, 'getKandidatData']);
 
 
     Route::get('/logout', [SesiController::class, 'logout'])->name('logout');

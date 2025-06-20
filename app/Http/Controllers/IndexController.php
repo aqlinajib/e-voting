@@ -292,10 +292,9 @@ class IndexController extends Controller
 
 
     //RESULT HASIL
-    public function result($id_event)
+   public function result($id_event)
     {
         $event = Kandidat::where('id_event', $id_event)->get();
-        $data = Kandidat::all();
-        return view('adminall.result', ['id_event' => $id_event, 'event' => $event, 'data' => $data]);
+        return view('adminall.result', ['id_event' => $id_event, 'event' => $event]);
     }
 }
